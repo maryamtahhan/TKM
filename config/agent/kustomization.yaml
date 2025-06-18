@@ -3,6 +3,9 @@ kind: Kustomization
 resources:
 - tkm-agent.yaml
 images:
+- name: agent
+  newName: quay.io/tkm/agent
+  newTag: latest
 - name: quay.io/tkm/agent
   newName: quay.io/tkm/agent
   newTag: latest

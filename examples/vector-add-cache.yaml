@@ -1,0 +1,7 @@
+apiVersion: tkm.io/v1alpha1
+kind: TKMCache
+metadata:
+  name: vector-add-cache
+spec:
+  image: quay.io/tkm/vector-add-cache:rocm
+  name: vector-add-cache

@@ -1,0 +1,9 @@
+resources:
+- https://github.com/cert-manager/cert-manager/releases/latest/download/cert-manager.yaml
+
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+patches:
+- path: patch-cert-manager-controller.yaml
+- path: patch-cert-manager-cainjector.yaml
+- path: patch-cert-manager-webhook.yaml

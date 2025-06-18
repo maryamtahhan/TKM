@@ -138,7 +138,7 @@ TKM will support the following CRDs:
   by scoping kernel cache declarations to specific namespaces.
 
   > *[OI] Possible Naming Options (prefer a shorter name):
-  > TKMCache/TKMCache/TKMImage/TKMCacheImage/TKMKernelImage*
+  > TKMCache/TKMCache/TKMImage/TKMImage/TKMKernelImage*
 - **TKMCacheCluster CRD:**
   Same as TKMCache, but used when the kernel resource is intended for
   workloads across the entire cluster. Suitable for shared or system-wide kernel

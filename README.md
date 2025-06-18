@@ -117,20 +117,20 @@ Deploy the operator:
 cd config/manager && /home/mtahhan/TKM/bin/kustomize edit set image controller=quay.io/tkm/operator:latest
 /home/mtahhan/TKM/bin/kustomize build config/default | kubectl apply -f -
 namespace/tkm-system created
-customresourcedefinition.apiextensions.k8s.io/tritonkernelcacheclusters.tkm.io created
-customresourcedefinition.apiextensions.k8s.io/tritonkernelcachenodestatuses.tkm.io created
-customresourcedefinition.apiextensions.k8s.io/tritonkernelcaches.tkm.io created
+customresourcedefinition.apiextensions.k8s.io/tkmcacheclusters.tkm.io created
+customresourcedefinition.apiextensions.k8s.io/tkmnodestatuses.tkm.io created
+customresourcedefinition.apiextensions.k8s.io/tkmcaches.tkm.io created
 serviceaccount/tkm-operator-controller-manager created
 role.rbac.authorization.k8s.io/tkm-operator-leader-election-role created
 clusterrole.rbac.authorization.k8s.io/tkm-operator-manager-role created
 clusterrole.rbac.authorization.k8s.io/tkm-operator-metrics-auth-role created
 clusterrole.rbac.authorization.k8s.io/tkm-operator-metrics-reader created
-clusterrole.rbac.authorization.k8s.io/tkm-operator-tritonkernelcache-editor-role created
-clusterrole.rbac.authorization.k8s.io/tkm-operator-tritonkernelcache-viewer-role created
-clusterrole.rbac.authorization.k8s.io/tkm-operator-tritonkernelcachecluster-editor-role created
-clusterrole.rbac.authorization.k8s.io/tkm-operator-tritonkernelcachecluster-viewer-role created
-clusterrole.rbac.authorization.k8s.io/tkm-operator-tritonkernelcachenodestatus-editor-role created
-clusterrole.rbac.authorization.k8s.io/tkm-operator-tritonkernelcachenodestatus-viewer-role created
+clusterrole.rbac.authorization.k8s.io/tkm-operator-tkmcache-editor-role created
+clusterrole.rbac.authorization.k8s.io/tkm-operator-tkmcache-viewer-role created
+clusterrole.rbac.authorization.k8s.io/tkm-operator-tkmcachecluster-editor-role created
+clusterrole.rbac.authorization.k8s.io/tkm-operator-tkmcachecluster-viewer-role created
+clusterrole.rbac.authorization.k8s.io/tkm-operator-tkmnodestatus-editor-role created
+clusterrole.rbac.authorization.k8s.io/tkm-operator-tkmnodestatus-viewer-role created
 rolebinding.rbac.authorization.k8s.io/tkm-operator-leader-election-rolebinding created
 clusterrolebinding.rbac.authorization.k8s.io/tkm-operator-manager-rolebinding created
 clusterrolebinding.rbac.authorization.k8s.io/tkm-operator-metrics-auth-rolebinding created

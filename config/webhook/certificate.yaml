@@ -1,0 +1,21 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: webhook-server-cert
+  namespace: tkm-system
+spec:
+  secretName: webhook-server-cert
+  duration: 8760h  # 1 year
+  renewBefore: 360h  # renew 15 days before
+  subject:
+    organizations:
+      - tkm.io
+  commonName: tkm-operator-webhook-service.tkm-system.svc
+  dnsNames:
+    - tkm-operator-webhook-service
+    - tkm-operator-webhook-service.tkm-system
+    - tkm-operator-webhook-service.tkm-system.svc
+    - tkm-operator-webhook-service.tkm-system.svc.cluster.local
+  issuerRef:
+    name: selfsigned-issuer
+    kind: Issuer

@@ -25,6 +25,7 @@ COPY go.sum go.sum
 COPY cmd/tkm-operator/main.go cmd/main.go
 COPY api/ api/
 COPY internal/controllers/ internal/controllers/
+COPY internal/webhooks/ internal/webhooks/
 COPY vendor/ vendor/
 
 # Build the binary with CGO enabled

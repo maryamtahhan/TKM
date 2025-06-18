@@ -1,0 +1,13 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: MutatingWebhookConfiguration
+metadata:
+  name: tkm-operator-mutating-webhook-configuration
+webhooks:
+  - name: mtkmcache.kb.io
+    admissionReviewVersions: ["v1"]
+    sideEffects: None
+    clientConfig:
+      service:
+        name: tkm-operator-webhook-service
+        namespace: tkm-system
+        path: /mutate-tkmcache
