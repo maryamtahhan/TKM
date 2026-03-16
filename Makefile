@@ -603,8 +603,19 @@ setup-kind: kind-gpu-sim-script
 kind-load-images: kind-gpu-sim-script get-example-images
 	@echo "Loading operator image ${OPERATOR_IMG} into Kind cluster: $(KIND_CLUSTER_NAME)"
 	cat $(KIND_GPU_SIM_SCRIPT) | bash -s load --image-name=${OPERATOR_IMG} --cluster-name=$(KIND_CLUSTER_NAME)
-	@echo "Loading agent image ${AGENT_IMG} into Kind cluster: $(KIND_CLUSTER_NAME)"
-	cat $(KIND_GPU_SIM_SCRIPT) | bash -s load --image-name=${AGENT_IMG} --cluster-name=$(KIND_CLUSTER_NAME)
+	@echo "Loading agent base image ${AGENT_BASE_IMG} into Kind cluster: $(KIND_CLUSTER_NAME)"
+	cat $(KIND_GPU_SIM_SCRIPT) | bash -s load --image-name=${AGENT_BASE_IMG} --cluster-name=$(KIND_CLUSTER_NAME)
+ifeq ($(NO_GPU_BUILD),true)
+	@echo "Loading agent nogpu image ${AGENT_NOGPU_IMG} into Kind cluster: $(KIND_CLUSTER_NAME)"
+	cat $(KIND_GPU_SIM_SCRIPT) | bash -s load --image-name=${AGENT_NOGPU_IMG} --cluster-name=$(KIND_CLUSTER_NAME)
+else
+	@echo "Loading agent nvidia image ${AGENT_NVIDIA_IMG} into Kind cluster: $(KIND_CLUSTER_NAME)"
+	cat $(KIND_GPU_SIM_SCRIPT) | bash -s load --image-name=${AGENT_NVIDIA_IMG} --cluster-name=$(KIND_CLUSTER_NAME)
+	@echo "Loading agent amd image ${AGENT_AMD_IMG} into Kind cluster: $(KIND_CLUSTER_NAME)"
+	cat $(KIND_GPU_SIM_SCRIPT) | bash -s load --image-name=${AGENT_AMD_IMG} --cluster-name=$(KIND_CLUSTER_NAME)
+	@echo "Loading agent nogpu image ${AGENT_NOGPU_IMG} into Kind cluster: $(KIND_CLUSTER_NAME)"
+	cat $(KIND_GPU_SIM_SCRIPT) | bash -s load --image-name=${AGENT_NOGPU_IMG} --cluster-name=$(KIND_CLUSTER_NAME)
+endif
 	@echo "Loading gkm-extract image ${EXTRACT_IMG} into Kind cluster: $(KIND_CLUSTER_NAME)"
 	cat $(KIND_GPU_SIM_SCRIPT) | bash -s load --image-name=${EXTRACT_IMG} --cluster-name=$(KIND_CLUSTER_NAME)
 	@echo "Images loaded successfully into Kind cluster: $(KIND_CLUSTER_NAME)"
