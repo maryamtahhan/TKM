@@ -40,17 +40,7 @@ sudo dnf install -y --repofrompath=centos-crb,${CENTOS_CRB} \
 echo ""
 echo "=== Step 3: Installing btrfs development headers ==="
 echo "====================================================="
-# First install the base libraries with --nodeps to skip filesystem checks
-sudo rpm -ivh --nodeps \
-  "${FEDORA_BASE}/l/libbtrfs-6.19-1.fc45.x86_64.rpm" \
-  "${FEDORA_BASE}/l/libbtrfsutil-6.19-1.fc45.x86_64.rpm" 2>/dev/null || echo "Libraries may already be installed"
-
-# Now install devel package with --nodeps
-sudo rpm -ivh --nodeps \
-  "${FEDORA_BASE}/b/btrfs-progs-6.19-1.fc45.x86_64.rpm" 2>/dev/null || echo "btrfs-progs may already be installed"
-
-sudo rpm -ivh --nodeps \
-  "${FEDORA_BASE}/b/btrfs-progs-devel-6.19-1.fc45.x86_64.rpm"
+sudo dnf install -y btrfs-progs-devel
 
 echo ""
 echo "=== Step 4: Installing Go ${MIN_GO_VERSION}+ ==="
